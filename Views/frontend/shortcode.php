@@ -56,7 +56,7 @@ function coworking_list_companies($count)
 
     $output = '<ul class="coworking-companies">';
     foreach ($companies as $company) {
-        $output .= '<li>' . esc_html($company->name) . ' - ' . esc_html($company->industry) . '</li>';
+        $output .= '<li>' . esc_html($company->name) .  '</li>';
     }
     $output .= '</ul>';
 
