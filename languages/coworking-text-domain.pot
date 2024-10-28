@@ -1,0 +1,346 @@
+# Copyright (C) 2024 jignesh sharma
+# This file is distributed under the same license as the Co-Working space Management plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Co-Working space Management 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coworking-space-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-10-23T17:38:40+05:30\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: coworking-text-domain\n"
+
+#. Plugin Name of the plugin
+#: co-working-space-management.php
+msgid "Co-Working space Management"
+msgstr ""
+
+#. Description of the plugin
+#: co-working-space-management.php
+msgid "Manage co-working space, employees and lease company"
+msgstr ""
+
+#. Author of the plugin
+#: co-working-space-management.php
+msgid "jignesh sharma"
+msgstr ""
+
+#: co-working-space-management.php:61
+msgid "You are not allowed to see the co-working-space"
+msgstr ""
+
+#: Controllers/AdminController.php:12
+#: Controllers/AdminController.php:16
+msgid "co-working space"
+msgstr ""
+
+#: Controllers/AdminController.php:23
+#: Controllers/AdminController.php:24
+#: Views/admin/location.php:56
+msgid "Manage Locations"
+msgstr ""
+
+#: Controllers/AdminController.php:31
+#: Controllers/AdminController.php:32
+#: Views/admin/company.php:48
+msgid "Manage Companies"
+msgstr ""
+
+#: Controllers/AdminController.php:39
+#: Controllers/AdminController.php:40
+#: Views/admin/company-location.php:50
+msgid "Manage Company Locations"
+msgstr ""
+
+#: Controllers/AdminController.php:47
+#: Controllers/AdminController.php:48
+#: Views/admin/employee.php:52
+msgid "Manage Employees"
+msgstr ""
+
+#: Controllers/AdminController.php:63
+msgid "Error : RenderEmployeePage not found"
+msgstr ""
+
+#: Controllers/AdminController.php:72
+msgid "Error: renderCompanyLocationPage management view not found."
+msgstr ""
+
+#: Controllers/AdminController.php:82
+msgid "Error: renderCompanyPage management view not found."
+msgstr ""
+
+#: Controllers/AdminController.php:93
+msgid "Error: Location management view not found."
+msgstr ""
+
+#: Controllers/AdminController.php:126
+msgid "Error: Dashboard view not found"
+msgstr ""
+
+#: Views/admin/company-location.php:52
+msgid "Edit Company Location"
+msgstr ""
+
+#: Views/admin/company-location.php:52
+msgid "Add New Company Location"
+msgstr ""
+
+#: Views/admin/company-location.php:60
+msgid "Company"
+msgstr ""
+
+#: Views/admin/company-location.php:68
+#: Views/admin/employee.php:80
+#: Views/admin/employee.php:108
+msgid "Location"
+msgstr ""
+
+#: Views/admin/company-location.php:76
+msgid "Leased Space (sq ft)"
+msgstr ""
+
+#: Views/admin/company-location.php:80
+#: Views/admin/company-location.php:110
+msgid "Monthly Rent"
+msgstr ""
+
+#: Views/admin/company-location.php:84
+#: Views/admin/company-location.php:111
+msgid "Contract Start Date"
+msgstr ""
+
+#: Views/admin/company-location.php:88
+#: Views/admin/company-location.php:112
+msgid "Contract End Date"
+msgstr ""
+
+#: Views/admin/company-location.php:94
+msgid "Update Company Location"
+msgstr ""
+
+#: Views/admin/company-location.php:94
+msgid "Add Company Location"
+msgstr ""
+
+#: Views/admin/company-location.php:98
+#: Views/admin/company.php:77
+#: Views/admin/employee.php:93
+#: Views/admin/location.php:101
+msgid "Reset Form"
+msgstr ""
+
+#: Views/admin/company-location.php:103
+msgid "Existing Company Locations"
+msgstr ""
+
+#: Views/admin/company-location.php:107
+msgid "Company ID"
+msgstr ""
+
+#: Views/admin/company-location.php:108
+msgid "Location ID"
+msgstr ""
+
+#: Views/admin/company-location.php:109
+msgid "Leased Space"
+msgstr ""
+
+#: Views/admin/company-location.php:113
+#: Views/admin/company.php:91
+#: Views/admin/employee.php:109
+#: Views/admin/location.php:114
+msgid "Actions"
+msgstr ""
+
+#: Views/admin/company-location.php:126
+#: Views/admin/company.php:103
+#: Views/admin/employee.php:123
+#: Views/admin/location.php:125
+msgid "Edit"
+msgstr ""
+
+#: Views/admin/company-location.php:130
+#: Views/admin/company.php:106
+#: Views/admin/employee.php:126
+#: Views/admin/location.php:128
+msgid "Delete"
+msgstr ""
+
+#: Views/admin/company.php:50
+msgid "Edit Company"
+msgstr ""
+
+#: Views/admin/company.php:50
+msgid "Add New Company"
+msgstr ""
+
+#: Views/admin/company.php:56
+#: Views/admin/company.php:87
+msgid "Company Name"
+msgstr ""
+
+#: Views/admin/company.php:60
+#: Views/admin/company.php:88
+msgid "Contact Name"
+msgstr ""
+
+#: Views/admin/company.php:64
+#: Views/admin/company.php:89
+msgid "Contact Email"
+msgstr ""
+
+#: Views/admin/company.php:68
+#: Views/admin/company.php:90
+msgid "Contact Phone"
+msgstr ""
+
+#: Views/admin/company.php:73
+msgid "Update Company"
+msgstr ""
+
+#: Views/admin/company.php:73
+msgid "Add Company"
+msgstr ""
+
+#: Views/admin/company.php:82
+msgid "Existing Companies"
+msgstr ""
+
+#: Views/admin/company.php:86
+#: Views/admin/employee.php:102
+#: Views/admin/location.php:110
+msgid "ID"
+msgstr ""
+
+#: Views/admin/dashboard.php:157
+msgid "Recent Activity"
+msgstr ""
+
+#: Views/admin/dashboard.php:160
+msgid "Recently Added Locations"
+msgstr ""
+
+#: Views/admin/dashboard.php:167
+msgid "No recent locations found"
+msgstr ""
+
+#: Views/admin/dashboard.php:173
+msgid "Recently Added Employees"
+msgstr ""
+
+#: Views/admin/dashboard.php:180
+msgid "No recent employees found"
+msgstr ""
+
+#: Views/admin/dashboard.php:186
+msgid "Recently Added Companies"
+msgstr ""
+
+#: Views/admin/dashboard.php:193
+msgid "No recent companies found"
+msgstr ""
+
+#: Views/admin/employee.php:54
+msgid "Edit Employee"
+msgstr ""
+
+#: Views/admin/employee.php:54
+msgid "Add New Employee"
+msgstr ""
+
+#: Views/admin/employee.php:60
+#: Views/admin/employee.php:103
+msgid "First Name"
+msgstr ""
+
+#: Views/admin/employee.php:64
+#: Views/admin/employee.php:104
+msgid "Last Name"
+msgstr ""
+
+#: Views/admin/employee.php:68
+#: Views/admin/employee.php:105
+msgid "Email"
+msgstr ""
+
+#: Views/admin/employee.php:72
+#: Views/admin/employee.php:106
+msgid "Phone"
+msgstr ""
+
+#: Views/admin/employee.php:76
+#: Views/admin/employee.php:107
+msgid "Role"
+msgstr ""
+
+#: Views/admin/employee.php:90
+msgid "Update Employee"
+msgstr ""
+
+#: Views/admin/employee.php:90
+msgid "Add Employee"
+msgstr ""
+
+#: Views/admin/employee.php:98
+msgid "Existing Employees"
+msgstr ""
+
+#: Views/admin/location.php:58
+msgid "Edit Location"
+msgstr ""
+
+#: Views/admin/location.php:58
+msgid "Add New Location"
+msgstr ""
+
+#: Views/admin/location.php:64
+#: Views/admin/location.php:111
+msgid "Name"
+msgstr ""
+
+#: Views/admin/location.php:68
+#: Views/admin/location.php:112
+msgid "Address"
+msgstr ""
+
+#: Views/admin/location.php:72
+#: Views/admin/location.php:113
+msgid "City"
+msgstr ""
+
+#: Views/admin/location.php:76
+msgid "State"
+msgstr ""
+
+#: Views/admin/location.php:80
+msgid "ZIP"
+msgstr ""
+
+#: Views/admin/location.php:84
+msgid "Country"
+msgstr ""
+
+#: Views/admin/location.php:88
+msgid "Capacity"
+msgstr ""
+
+#: Views/admin/location.php:92
+msgid "Amenities"
+msgstr ""
+
+#: Views/admin/location.php:97
+msgid "Update Location"
+msgstr ""
+
+#: Views/admin/location.php:97
+msgid "Add Location"
+msgstr ""
+
+#: Views/admin/location.php:106
+msgid "Existing Locations"
+msgstr ""

@@ -1,0 +1,24 @@
+{
+    "name": "jignesh/coworking-space-management",
+    "description": "A WordPress plugin for managing co-working spaces, employees, and companies",
+    "type": "wordpress-plugin",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "jignesh sharma",
+            "email": "jigneshsharma9868@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "Controllers/",
+            "App\\Models\\": "Models/",
+            "App\\Views\\": "Views/",
+            "App\\Config\\": "Config/",
+            "App\\Database\\":"Database/",
+            "App\\Seeders\\":"Seeders/",
+            "App\\Commands\\":"Commands/"
+        }
+    }
+}
