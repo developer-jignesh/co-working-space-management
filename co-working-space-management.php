@@ -21,9 +21,11 @@ require_once __DIR__ . "/vendor/autoload.php";
 if(is_admin()) {
 
     require_once __DIR__ . "/Views/admin/admin.php";
-} 
+} else {
 
     require_once __DIR__ . "/Views/frontend/shortcode.php";
+}
+
 
 // Plugin activation hook
 register_activation_hook(__FILE__, function () {

@@ -58,7 +58,6 @@ class Location extends BaseModel {
     global $wpdb;
     $query = "SELECT * FROM {$this->table}";
     
-    // Add a limit to the query if count is provided and greater than 0
     if ($count > 0) {
         $query .= $wpdb->prepare(" LIMIT %d", $count);
     }

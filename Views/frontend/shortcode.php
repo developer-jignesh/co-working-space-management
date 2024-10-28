@@ -8,13 +8,11 @@ add_action('init', function () {
 
 function coworking_list_shortcode($atts)
 {
-    // Define default attributes and merge with user-defined attributes
     $atts = shortcode_atts([
-        'type' => 'location', // Default type is 'location'
-        'count' => -1, // Default to show all items
+        'type' => 'location', 
+        'count' => -1, 
     ], $atts, 'coworking_list');
 
-    // Determine which type of data to retrieve based on the 'type' attribute
     switch ($atts['type']) {
         case 'location':
             return coworking_list_locations($atts['count']);

@@ -90,4 +90,5 @@ class BaseModel
         
        return  $this->wpdb->get_var("SELECT SUM(leased_space) FROM {$this->wpdb->prefix}CompanyLocation");
     }
+   
 }
