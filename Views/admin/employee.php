@@ -1,6 +1,8 @@
 <?php
-if (!defined('ABSPATH')) exit;
-
+if (!defined('ABSPATH'))  {
+    echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
+    exit;
+}
 use App\Controllers\Employee as EmployeeController;
 
 $edit_mode = isset($_GET['action']) && $_GET['action'] === 'edit' && isset($_GET['employee_id']);

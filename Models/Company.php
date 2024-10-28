@@ -35,7 +35,7 @@ class Company extends BaseModel {
     public function countCompanies() {
         return $this->countAll();
     }
-    public function shortcodegetAllCompanies($count = -1)
+    public function shortcodegetAllCompanies($count = -1): array|object|null
 {
     
     $query = "SELECT * FROM {$this->table}";

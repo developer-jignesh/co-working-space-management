@@ -1,5 +1,8 @@
 <?php
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH'))  {
+    echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
+    exit;
+}
 
 use App\Controllers\Company as CompanyController;
 

@@ -80,7 +80,7 @@ class BaseModel
     {
         $this->wpdb->delete($this->table, ['company_id' => $company_id, 'location_id' => $location_id]);
     }
-    public function countAll() {
+    public function countAll(): int {
         return (int) $this->wpdb->get_var("SELECT COUNT(*) FROM {$this->table}");
     }
     public function getTotalMonthlyRent() {
