@@ -5,9 +5,10 @@ namespace App\Models;
 class Employee extends BaseModel {
 
    
-
+  protected $wpdb;
     public function __construct() {
-       
+        global $wpdb;
+        $this->wpdb = $wpdb;
         parent::__construct('Employee');
     }
 
@@ -40,14 +41,13 @@ class Employee extends BaseModel {
     }
     public function shortcodegetAllEmployees($count = -1)
 {
-    global $wpdb;
     $query = "SELECT * FROM {$this->table}";
 
     if ($count > 0) {
-        $query .= $wpdb->prepare(" LIMIT %d", $count);
+        $query .= $this->wpdb->prepare(" LIMIT %d", $count);
     }
 
-    return $wpdb->get_results($query);
+    return $this->wpdb->get_results($query);
 }
 
 }

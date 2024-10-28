@@ -3,8 +3,10 @@
 namespace App\Models;
 
 class CompanyLocation extends BaseModel {
-
+    protected $wpdb;
     public function __construct() {
+        global $wpdb;
+        $this->wpdb = $wpdb;
         parent::__construct('CompanyLocation');
     }
 
@@ -24,21 +26,19 @@ class CompanyLocation extends BaseModel {
     }
 
     public function getCompanyLocationById($company_id, $location_id) {
-        global $wpdb;
-        $table = $wpdb->prefix . 'CompanyLocation';
-        $sql = $wpdb->prepare("
+        $table = $this->wpdb->prefix . 'CompanyLocation';
+        $sql = $this->wpdb->prepare("
             SELECT * FROM $table 
             WHERE company_id = %d AND location_id = %d
             LIMIT 1
         ", $company_id, $location_id);
     
-        return $wpdb->get_row($sql); 
+        return $this->wpdb->get_row($sql); 
     }
 
     public function updateCompanyLocation($company_id, $location_id, $data) {
-        global $wpdb;
-        $table = $wpdb->prefix . 'CompanyLocation';
-        $result = $wpdb->update(
+        $table = $this->wpdb->prefix . 'CompanyLocation';
+        $result = $this->wpdb->update(
             $table,
             $data, 
             ['company_id' => $company_id, 'location_id' => $location_id], 
@@ -46,40 +46,37 @@ class CompanyLocation extends BaseModel {
             ['%d', '%d'] 
         );
 
-        if ($wpdb->last_error) {
-            error_log("Update Error: " . $wpdb->last_error);
+        if ($this->wpdb->last_error) {
+            error_log("Update Error: " . $this->wpdb->last_error);
         }
 
         return $result;
     }
 
     public function deleteCompanyLocation($company_id, $location_id) {
-        global $wpdb;
-        $table = $wpdb->prefix . 'CompanyLocation';
-        $result = $wpdb->delete(
+        $table = $this->wpdb->prefix . 'CompanyLocation';
+        $result = $this->wpdb->delete(
             $table,
             ['company_id' => $company_id, 'location_id' => $location_id],
             ['%d', '%d']
         );
 
-        if ($wpdb->last_error) {
-            error_log("Delete Error: " . $wpdb->last_error);
+        if ($this->wpdb->last_error) {
+            error_log("Delete Error: " . $this->wpdb->last_error);
         }
 
         return $result;
     }
 
     public function getTotalMonthlyRent() {
-        global $wpdb;
-        $table = $wpdb->prefix . 'CompanyLocation';
+        $table = $this->wpdb->prefix . 'CompanyLocation';
         $query = "SELECT SUM(monthly_rent) AS total_rent FROM $table";
-        return $wpdb->get_var($query); 
+        return $this->wpdb->get_var($query); 
     }
 
     public function getTotalOccupiedSpace() {
-        global $wpdb;
-        $table = $wpdb->prefix . 'CompanyLocation';
+        $table = $this->wpdb->prefix . 'CompanyLocation';
         $query = "SELECT SUM(leased_space) AS total_space FROM $table";
-        return $wpdb->get_var($query); 
+        return $this->wpdb->get_var($query); 
     }
 }
