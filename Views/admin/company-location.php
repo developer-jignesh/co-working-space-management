@@ -12,14 +12,20 @@ $company_location_controller = new CompanyLocation($edit_mode ? intval($_GET['co
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = [
-        'company_id'         => intval($_POST['company_id']),
-        'location_id'        => intval($_POST['location_id']),
-        'leased_space'       => intval($_POST['leased_space']),
-        'monthly_rent'       => floatval($_POST['monthly_rent']),
-        'contract_start_date'=> sanitize_text_field($_POST['contract_start_date']),
-        'contract_end_date'  => sanitize_text_field($_POST['contract_end_date']),
-    ];
+    $leased_space = isset($_POST['leased_space']) ? intval($_POST['leased_space']) : null;
+$monthly_rent = isset($_POST['monthly_rent']) ? floatval($_POST['monthly_rent']) : null;
+$contract_start_date = isset($_POST['contract_start_date']) ? sanitize_text_field($_POST['contract_start_date']) : null;
+$contract_end_date = isset($_POST['contract_end_date']) ? sanitize_text_field($_POST['contract_end_date']) : null;
+
+  
+$data = [
+    'company_id'         => intval($_POST['company_id']),
+    'location_id'        => intval($_POST['location_id']),
+    'leased_space'       => $leased_space,
+    'monthly_rent'       => $monthly_rent,
+    'contract_start_date'=> $contract_start_date,
+    'contract_end_date'  => $contract_end_date,
+];
 
     // Debug: Check if the data array is correct
 

@@ -25,19 +25,12 @@ if(is_admin()) {
 
     require_once __DIR__ . "/Views/frontend/shortcode.php";
 }
-
-
-// Plugin activation hook
-register_activation_hook(__FILE__, function () {
+  
+add_action("plugins_loaded", function() {
     $database_manager = new DatabaseManager();
     $database_manager->installDatabase();
-});
-
-// Load plugin text domain for translations
-function coworking_load_textdomain() {
     load_plugin_textdomain('coworking-text-domain', false, dirname(plugin_basename(__FILE__)) . '/languages');
-}
-add_action("plugins_loaded", "coworking_load_textdomain");
+});
 
 // Initialize AjaxController for AJAX requests
 if (wp_doing_ajax()) {
