@@ -78,7 +78,10 @@ class Location
     {
         return $this->model->getAllLocations();
     }
-
+   //method for get location for pagination.
+    public function getAllLocationforPagination($locations_per_page, $offset) {
+         return $this->model->getAllLocationsforPagination($locations_per_page, $offset);
+    }
     public function get_employees_by_location($location_id)
     {
         return $this->model->getEmployeesByLocation($location_id);

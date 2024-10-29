@@ -35,14 +35,14 @@ add_action("admin_menu", function () {
         'renderCompanyPage'
     );
 
-    add_submenu_page(
-        'coworking-dashboard',
-        __('Manage Company Locations', 'coworking-text-domain'),
-        __('Manage Company Locations', 'coworking-text-domain'),
-        'manage_options',
-        'manage-company-locations',
-        'renderCompanyLocationPage'
-    );
+    // add_submenu_page(
+    //     'coworking-dashboard',
+    //     __('Manage Company Locations', 'coworking-text-domain'),
+    //     __('Manage Company Locations', 'coworking-text-domain'),
+    //     'manage_options',
+    //     'manage-company-locations',
+    //     'renderCompanyLocationPage'
+    // );
 
     add_submenu_page(
         'coworking-dashboard',
@@ -58,29 +58,6 @@ add_action("admin_menu", function () {
 add_action('admin_enqueue_scripts', 'enqueueAdminScripts');
 
 // Callback functions for menu pages
-function renderDashboardPage()
-{
-    global $wpdb;
-
-    $location_model = new \App\Models\Location();
-    $employee_model = new \App\Models\Employee();
-    $company_model = new \App\Models\Company();
-    $company_location_model = new \App\Models\CompanyLocation();
-
-    $total_locations = $location_model->countLocations();
-    $total_employees = $employee_model->countEmployees();
-    $total_companies = $company_model->countCompanies();
-    $occupied_space = $company_location_model->getTotalOccupiedSpace();
-    $total_space = 10000;
-    $monthly_rent = $company_location_model->getTotalMonthlyRent();
-
-    $dashboard_view = plugin_dir_path(__FILE__) . 'dashboard.php';
-    if (file_exists($dashboard_view)) {
-        include $dashboard_view;
-    } else {
-        echo '<h1>' . __('Error: Dashboard view not found', 'coworking-text-domain') . '</h1>';
-    }
-}
 
 function manageLocations()
 {
@@ -116,6 +93,7 @@ function renderEmployeePage()
         echo '<h1>' . __('Error: Employee management view not found.', 'coworking-text-domain') . '</h1>';
     }
 }
+
 
 function enqueueAdminScripts()
 {

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Database\DatabaseManager;
+use Exception;
 class BaseModel
 {
     protected $wpdb;
@@ -13,10 +14,6 @@ class BaseModel
         $this->wpdb = $wpdb;
         $this->table = $wpdb->prefix . $table;
     }
-    public function DeleteCompanyLocationByID($company_id, $location_id)
-    {
-
-    }
     // Create a new record
     public function create($data)
     {
@@ -26,10 +23,12 @@ class BaseModel
     // Read all records or a specific record by ID
     public function read($id = null)
     {
+       
         if ($id) {
             return $this->wpdb->get_row($this->wpdb->prepare("SELECT * FROM {$this->table} WHERE id = %d", $id));
         }
         return $this->wpdb->get_results("SELECT * FROM {$this->table}");
+
     }
 
     public function readById($id): array|object|null
@@ -60,6 +59,7 @@ class BaseModel
     // Custom query
     public function query($sql)
     {
+        
         return $this->wpdb->get_results($sql);
     }
     public function read_()
@@ -67,28 +67,14 @@ class BaseModel
         return $this->wpdb->get_results("SELECT * FROM $this->table");
     }
 
-    public function readByIdCompanyIdandLocationId($company_id, $location_id)
-    {
-        return $this->wpdb->get_row($this->wpdb->prepare("SELECT * FROM $this->table WHERE company_id = %d AND location_id = %d", $company_id, $location_id));
-    }
-    public function updateByCompanyIdandLocationId($company_id, $location_id, $data)
-    {
-        $this->wpdb->update($this->table, $data, ['company_id' => $company_id, 'location_id' => $location_id]);
-    }
-
-    public function deleteByCompanyIdandLocationId($company_id, $location_id)
-    {
-        $this->wpdb->delete($this->table, ['company_id' => $company_id, 'location_id' => $location_id]);
-    }
+   
+  
+   
+   
     public function countAll(): int {
         return (int) $this->wpdb->get_var("SELECT COUNT(*) FROM {$this->table}");
     }
-    public function getTotalMonthlyRent() {
-        return $this->wpdb->get_var("SELECT SUM(monthly_rent) FROM {$this->wpdb->prefix}CompanyLocation");
-    }
-    public function getTotalOccupiedSpace() {
-        
-       return  $this->wpdb->get_var("SELECT SUM(leased_space) FROM {$this->wpdb->prefix}CompanyLocation");
-    }
+    
+    
    
 }

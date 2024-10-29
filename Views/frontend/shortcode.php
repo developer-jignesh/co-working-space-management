@@ -20,8 +20,6 @@ function coworking_list_shortcode($atts)
             return coworking_list_companies($atts['count']);
         case 'employee':
             return coworking_list_employees($atts['count']);
-        case 'dashboard':
-            return coworking_list_dashboard($atts['count']);
         default:
             return __('Invalid type specified.', 'coworking-text-domain');
     }
@@ -78,13 +76,6 @@ function coworking_list_employees($count)
     }
     $output .= '</ul>';
 
-    return $output;
-}
-
-function coworking_list_dashboard($count)
-{
-    
-    $output = '<p>' . __('Dashboard data is not available via shortcode.', 'coworking-text-domain') . '</p>';
     return $output;
 }
 

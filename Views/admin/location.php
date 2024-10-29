@@ -58,6 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Fetch all locations for display
 $locations = $location_controller->get_all_locations();
+$locations_per_page = 10;
+$current_page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
+$total_locations = $location_controller->count_locations();
+$total_pages = ceil($total_locations / $locations_per_page);
+$offset = ($current_page - 1) * $locations_per_page;
+
+$locations = $location_controller->getAllLocationforPagination($locations_per_page, $offset);
 ?>
 
 <h1><?php _e('Manage Locations', 'coworking-text-domain'); ?></h1>
@@ -140,3 +147,16 @@ $locations = $location_controller->get_all_locations();
         <?php endforeach; ?>
     </tbody>
 </table>
+<!-- Pagination Links -->
+<div class="pagination">
+    <?php
+    echo paginate_links([
+        'base' => add_query_arg('paged', '%#%'),
+        'format' => '',
+        'current' => $current_page,
+        'total' => $total_pages,
+        'prev_text' => __('« Previous', 'coworking-text-domain'),
+        'next_text' => __('Next »', 'coworking-text-domain'),
+    ]);
+    ?>
+</div>

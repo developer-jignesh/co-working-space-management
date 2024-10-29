@@ -78,5 +78,10 @@ class Employee
     {
         return !empty($this->EmployeeProps['id']) || self::$exists;
     }
-    
+    public function countEmployees(): int {
+        return $this->model->countEmployees();
+    }
+    public function getAlltheemployeesforPgination($limit,$offset) {
+        return $this->model->getAlltheemployeesforPgination($limit, $offset);
+    }
 }

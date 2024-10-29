@@ -54,6 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Fetch all employees for display
 $employees = $employee_controller->get_all_employees();
+$employees_per_page = 2;
+
+$current_page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
+$total_employees = $employee_controller->countEmployees();
+$total_pages = ceil($total_employees / $employees_per_page);
+$offset = ($current_page -1) * $employees_per_page;
+$employee_controller->getAlltheemployeesforPgination($employees_per_page, $offset);
 ?>
 
 <h1><?php _e('Manage Employees', 'coworking-text-domain'); ?></h1>
@@ -137,6 +144,18 @@ $employees = $employee_controller->get_all_employees();
         <?php endforeach; ?>
     </tbody>
 </table>
+<!-- Pagination Links -->
+<div class="pagination">
+    <?php
+    echo paginate_links([
+        'base' => add_query_arg('paged', '%#%'),
+        'format' => '',
+        'current' => $current_page,
+        'total' => $total_pages,
+        'prev_text' => __('« Previous', 'coworking-text-domain'),
+        'next_text' => __('Next »', 'coworking-text-domain'),
+    ]);
+    ?>
 <script>
     jQuery(document).ready(function($) {
     // Fetch available locations via AJAX

@@ -22,6 +22,7 @@ class Location extends BaseModel {
 
     // Method to create a new location
     public function createLocation($data) {
+        $data['available_space'] = $data['capacity'];
         return $this->create($data); // Create a new record in 'Location' table
     }
 
@@ -63,6 +64,23 @@ class Location extends BaseModel {
         $query .= $this->wpdb->prepare(" LIMIT %d", $count);
     }
 
+    return $this->wpdb->get_results($query);
+}
+ // Method to update available_space
+ public function updateAvailableSpace($location_id, $new_available_space) {
+    return $this->wpdb->update(
+        $this->table,
+        ['available_space' => $new_available_space],
+        ['id' => $location_id]
+    );
+}
+
+public function getAllLocationsforPagination($limit,$offset) {
+    $query = $this->wpdb->prepare(
+        "SELECT * FROM {$this->table} LIMIT %d OFFSET %d",
+        $limit,
+        $offset
+    );
     return $this->wpdb->get_results($query);
 }
 

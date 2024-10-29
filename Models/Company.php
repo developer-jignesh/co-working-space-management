@@ -46,5 +46,11 @@ class Company extends BaseModel {
 
     return $this->wpdb->get_results($query);
 }
-
+  public function getAllcompaniesforPagination($limit, $offset): void {
+    $query = $this->wpdb->prepare(
+        "SELECT * FROM {$this->table} LIMIT %d OFFSET %d",
+        $limit,
+        $offset
+    );
+  }
 }

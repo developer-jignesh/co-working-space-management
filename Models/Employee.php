@@ -36,7 +36,7 @@ class Employee extends BaseModel {
     public function deleteEmployeeById($id) {
    return parent::delete($id);   
     }
-    public function countEmployees() {
+    public function countEmployees(): int {
         return parent::countAll();
     }
     public function shortcodegetAllEmployees($count = -1)
@@ -49,5 +49,11 @@ class Employee extends BaseModel {
 
     return $this->wpdb->get_results($query);
 }
-
+  public function getAlltheemployeesforPgination($limit, $offset) {
+    $query = $this->wpdb->prepare(
+        "SELECT * FROM {$this->table} LIMIT %d OFFSET %d",
+        $limit,
+        $offset
+    );
+  }
 }
